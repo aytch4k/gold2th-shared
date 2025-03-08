@@ -37,40 +37,34 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-6">
                 <Link
-                  to="devhub"
-                  className={`nav-link ${isActive('devhub') ? 'active-nav-link' : ''}`}
+                  to="g2-did-manager"
+                  className={`nav-link ${isActive('did-manager') ? 'active-nav-link' : ''}`}
                 >
-                  DevHub
+                  DId Manager
                 </Link>
                 <Link
-                  to="ai"
-                  className={`nav-link ${isActive('ai') ? 'active-nav-link' : ''}`}
+                  to="g2-credential-manager"
+                  className={`nav-link ${isActive('credential-vault') ? 'active-nav-link' : ''}`}
                 >
-                  AI
+                  Credential Vault
                 </Link>
                 <Link
-                  to="dna"
-                  className={`nav-link ${isActive('dna') ? 'active-nav-link' : ''}`}
+                  to="g2-consent-management"
+                  className={`nav-link ${isActive('consent-management') ? 'active-nav-link' : ''}`}
                 >
-                  DnA
+                  Consent Management
                 </Link>
                 <Link
-                  to="defi"
-                  className={`nav-link ${isActive('defi') ? 'active-nav-link' : ''}`}
+                  to="g2-security"
+                  className={`nav-link ${isActive('security') ? 'active-nav-link' : ''}`}
                 >
-                  DeFi
+                  Security
                 </Link>
                 <Link
-                  to="hardware"
-                  className={`nav-link ${isActive('hardware') ? 'active-nav-link' : ''}`}
+                  to="g2-settings"
+                  className={`nav-link ${isActive('settings') ? 'active-nav-link' : ''}`}
                 >
-                  Hardware
-                </Link>
-                <Link
-                  to="software"
-                  className={`nav-link ${isActive('software') ? 'active-nav-link' : ''}`}
-                >
-                  Software
+                  Settings
                 </Link>
               </div>
             </div>
@@ -118,46 +112,60 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
                 <Link
-                  to="/devhub"
-                  className={`nav-link py-2 ${isActive('devhub') ? 'active-nav-link' : ''}`}
+                  to="/g2-did-manager"
+                  className={`nav-link py-2 ${isActive('did-manager') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  DevHub
+                  Did Manager
                 </Link>
                 <Link
-                  to="/ai"
-                  className={`nav-link py-2 ${isActive('ai') ? 'active-nav-link' : ''}`}
+                  to="/g2-credential-vault"
+                  className={`nav-link py-2 ${isActive('credential-vault') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  AI
+                  Credential Vault
                 </Link>
                 <Link
-                  to="/dna"
-                  className={`nav-link py-2 ${isActive('dna') ? 'active-nav-link' : ''}`}
+                  to="/g2-consent-management"
+                  className={`nav-link py-2 ${isActive('consent-management') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  DnA
+                  Consent Management
                 </Link>
                 <Link
-                  to="/defi"
-                  className={`nav-link py-2 ${isActive('defi') ? 'active-nav-link' : ''}`}
+                  to="g2-security"
+                  className={`nav-link py-2 ${isActive('security') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  DeFi
+                  Security
                 </Link>
                 <Link
-                  to="/hardware"
-                  className={`glass-button text-center ${isActive('hardware') ? 'active-glass-button' : ''}`}
+                  to="/g2-endpoint-defender"
+                  className={`nav-link py-2 ${isActive('endpoint-defender') ? 'active-glass-button' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Hardware
+                  Endpoint Defender (QESD)
                 </Link>
                 <Link
-                  to="/software"
-                  className={`glass-button text-center ${isActive('software') ? 'active-glass-button' : ''}`}
+                  to="/g2-secure-tunnel"
+                  className={`nav-link py-2 ${isActive('secure-tunnel') ? 'active-glass-button' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Software
+                  Secure Tunnel (VPN)
+                </Link>
+                <Link
+                  to="/g2-Secure Messenger"
+                  className={`nav-link py-2 ${isActive('secure-messenger') ? 'active-glass-button' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Secure Messengerr
+                </Link>
+                <Link
+                  to="/g2-settings"
+                  className={`nav-link py-2 ${isActive('settings') ? 'active-nav-link' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Settings
                 </Link>
               </div>
             </div>

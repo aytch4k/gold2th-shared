@@ -2,3 +2,4 @@ webui-react/node_modules/.bin/acorn
 /webui-react/node_modules
 webui-react/.DS_Store
 webui-react/public/.DS_Store
+.DS_Store
