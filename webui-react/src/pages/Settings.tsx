@@ -70,7 +70,7 @@ const marketplaceItems = [
 // Hero image URL - using a placeholder image from Unsplash
 const heroImageUrl = 'ai-hero-image.PNG'
 
-const AI: React.FC = () => {
+const Settings: React.FC = () => {
   // State for collapsible sections
   const [tutorialsExpanded, setTutorialsExpanded] = React.useState(false)
   const [guidesExpanded, setGuidesExpanded] = React.useState(false)
@@ -661,4 +661,4 @@ const AI: React.FC = () => {
   )
 }
 
-export default AI
+export default Settings

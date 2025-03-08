@@ -37,8 +37,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-6">
                 <Link
-                  to="g2-did-manager"
-                  className={`nav-link ${isActive('did-manager') ? 'active-nav-link' : ''}`}
+                  to="/DidManager"
+                  className={`nav-link ${isActive('DidManager') ? 'active-nav-link' : ''}`}
                 >
                   DId Manager
                 </Link>
@@ -49,20 +49,20 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
                   Credential Vault
                 </Link>
                 <Link
-                  to="g2-consent-management"
-                  className={`nav-link ${isActive('consent-management') ? 'active-nav-link' : ''}`}
+                  to="/ConsentManagement"
+                  className={`nav-link ${isActive('ConsentManagement') ? 'active-nav-link' : ''}`}
                 >
                   Consent Management
                 </Link>
                 <Link
-                  to="g2-security"
-                  className={`nav-link ${isActive('security') ? 'active-nav-link' : ''}`}
+                  to="/Security"
+                  className={`nav-link ${isActive('Security') ? 'active-nav-link' : ''}`}
                 >
                   Security
                 </Link>
                 <Link
-                  to="g2-settings"
-                  className={`nav-link ${isActive('settings') ? 'active-nav-link' : ''}`}
+                  to="/Settings"
+                  className={`nav-link ${isActive('Settings') ? 'active-nav-link' : ''}`}
                 >
                   Settings
                 </Link>
@@ -112,8 +112,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
                 <Link
-                  to="/g2-did-manager"
-                  className={`nav-link py-2 ${isActive('did-manager') ? 'active-nav-link' : ''}`}
+                  to="/DidManager"
+                  className={`nav-link py-2 ${isActive('DidManager') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Did Manager
@@ -126,15 +126,15 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
                   Credential Vault
                 </Link>
                 <Link
-                  to="/g2-consent-management"
-                  className={`nav-link py-2 ${isActive('consent-management') ? 'active-nav-link' : ''}`}
+                  to="/ConsentManagement"
+                  className={`nav-link py-2 ${isActive('ConsentManagement') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Consent Management
                 </Link>
                 <Link
-                  to="g2-security"
-                  className={`nav-link py-2 ${isActive('security') ? 'active-nav-link' : ''}`}
+                  to="Security"
+                  className={`nav-link py-2 ${isActive('Security') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Security
@@ -161,8 +161,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
                   Secure Messengerr
                 </Link>
                 <Link
-                  to="/g2-settings"
-                  className={`nav-link py-2 ${isActive('settings') ? 'active-nav-link' : ''}`}
+                  to="/Settings"
+                  className={`nav-link py-2 ${isActive('Settings') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Settings

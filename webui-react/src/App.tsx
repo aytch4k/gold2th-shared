@@ -12,9 +12,10 @@ import Home from './pages/Home'
 
 
 import CredentialVault from './pages/CredentialVault'
-import AI from './pages/AI'
-import DnA from './pages/DnA'
-import DeFi from './pages/DeFi'
+import DidManager from './pages/DidManager'
+import ConsentManagement from './pages/ConsentManagement'
+import Security from './pages/Security'
+import Settings from './pages/Settings'
 import Hardware from './pages/Hardware'
 import Software from './pages/Software'
 import Repositories from './pages/Repositories'
@@ -63,10 +64,11 @@ const App: React.FC = () => {
                   <div className="animate-fade-in">
                     <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/DidManager" element={<DidManager />} />
                     <Route path="/CredentialVault" element={<CredentialVault />} />
-                    <Route path="/DeFi" element={<DeFi />} />
-                    <Route path="/DnA" element={<DnA />} />
-                    <Route path="/Hardware" element={<Hardware />} />
+                    <Route path="/ConsentManagement" element={<ConsentManagement />} />
+                    <Route path="/Security" element={<Security />} />
+                    <Route path="/Settings" element={<Settings />} />
                     <Route path="/Software" element={<Software />} />
                     <Route path="/repositories" element={<Repositories />} />
                     <Route path="/community" element={<Community />} />
