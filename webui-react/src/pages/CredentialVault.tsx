@@ -21,7 +21,8 @@ import {
   ChevronDown,
   ChevronUp,
   X,
-  ExternalLink
+  ExternalLink,
+  Settings
 } from 'lucide-react'
 
 // Mock data for AI page
@@ -70,7 +71,7 @@ const marketplaceItems = [
 // Hero image URL - using a placeholder image from Unsplash
 const heroImageUrl = 'ai-hero-image.PNG'
 
-const AI: React.FC = () => {
+const CredentialVault: React.FC = () => {
   // State for collapsible sections
   const [tutorialsExpanded, setTutorialsExpanded] = React.useState(false)
   const [guidesExpanded, setGuidesExpanded] = React.useState(false)
@@ -661,4 +662,4 @@ const AI: React.FC = () => {
   )
 }
 
-export default AI
+export default CredentialVault

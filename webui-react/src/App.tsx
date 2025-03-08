@@ -8,7 +8,10 @@ import '@rainbow-me/rainbowkit/styles.css'
 import { wagmiConfig } from './config/wagmi'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
-import DevHub from './pages/DevHub'
+
+
+
+import CredentialVault from './pages/CredentialVault'
 import AI from './pages/AI'
 import DnA from './pages/DnA'
 import DeFi from './pages/DeFi'
@@ -60,8 +63,7 @@ const App: React.FC = () => {
                   <div className="animate-fade-in">
                     <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/DevHub" element={<DevHub />} />
-                    <Route path="/AI" element={<AI />} />
+                    <Route path="/CredentialVault" element={<CredentialVault />} />
                     <Route path="/DeFi" element={<DeFi />} />
                     <Route path="/DnA" element={<DnA />} />
                     <Route path="/Hardware" element={<Hardware />} />

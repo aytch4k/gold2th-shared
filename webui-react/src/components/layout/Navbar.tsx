@@ -43,8 +43,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
                   DId Manager
                 </Link>
                 <Link
-                  to="g2-credential-manager"
-                  className={`nav-link ${isActive('credential-vault') ? 'active-nav-link' : ''}`}
+                  to="/CredentialVault"
+                  className={`nav-link ${isActive('CredentialVault') ? 'active-nav-link' : ''}`}
                 >
                   Credential Vault
                 </Link>
@@ -119,8 +119,8 @@ const Navbar: React.FC<NavbarProps> = ({ isDark, setIsDark }) => {
                   Did Manager
                 </Link>
                 <Link
-                  to="/g2-credential-vault"
-                  className={`nav-link py-2 ${isActive('credential-vault') ? 'active-nav-link' : ''}`}
+                  to="/CredentialVault"
+                  className={`nav-link py-2 ${isActive('CredentialVault') ? 'active-nav-link' : ''}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Credential Vault
