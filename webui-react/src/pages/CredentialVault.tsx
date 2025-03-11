@@ -27,29 +27,25 @@ import {
 
 // Mock data for AI page
 const featuredLLMs = [
-  { name: 'Mistral-7B', stars: 1245, type: 'Language Model' },
-  { name: 'LLaMA-13B', stars: 987, type: 'Language Model' }
+  { name: 'Available Templates', stars: 139, type: 'Language Model' },
+  { name: 'College Transcripts', stars: 14, type: 'Language Model' },
+  { name: 'Resume / CV Layouts', stars: 27, type: 'Language Model' },
+  { name: 'Credit Score', stars: 7, type: 'Language Model' }
 ]
 
 // AI Tools data
 const aiTools = [
   {
-    name: 'Flowise',
-    description: 'Low-code LLM app builder with visual workflow editor',
-    url: 'http://localhost:13000',
-    logoUrl: 'https://remarkable-smakager-ddb2b7.netlify.app/opengraph-image.png?2eca201df198027c'
-  },
-  {
-    name: 'n8n',
-    description: 'Workflow automation platform for connecting various services',
-    url: 'http://localhost:8083',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/53/N8n-logo-new.svg'
+    name: 'Credential Vault',
+    description: 'View and modify your secured credential vaults',
+    url: 'http://localhost:3001/credential-vault',
+    logoUrl: 'https://img.freepik.com/premium-vector/vector-design-password-vault-icon-style_822882-236577.jpg'
   }
 ]
 
 const popularRPA = [
-  { name: 'Data Extraction Workflow', downloads: 324, type: 'RPA' },
-  { name: 'Document Processing', downloads: 256, type: 'RPA' }
+  { name: 'Consent Management', downloads: 324, type: 'RPA' },
+  { name: 'Employment Exports', downloads: 296, type: 'RPA' }
 ]
 
 const tutorials = [
@@ -78,7 +74,7 @@ const heroImageUrl = 'credential-vault-hero-image.PNG'
 
 const CredentialVault: React.FC = () => {
   // State for collapsible sections
-  const [tutorialsExpanded, setTutorialsExpanded] = React.useState(false)
+  const [tutorialsExpanded, setTutorialsExpanded] = React.useState(true)
   const [guidesExpanded, setGuidesExpanded] = React.useState(false)
   const [dashboardExpanded, setDashboardExpanded] = React.useState(false)
   const [toolsExpanded, setToolsExpanded] = React.useState(false)
@@ -120,32 +116,7 @@ const CredentialVault: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Search Bar (Full Width) */}
-      <div className="glass-card p-4 mb-4 relative">
-        <div className="flex items-center gap-4">
-          <div className="relative flex-1">
-            <input
-              type="text"
-              placeholder="Search LLMs, RPA scripts, or DePAIN nodes"
-              className="w-full bg-background/30 border border-border/50 rounded-md py-2 px-4 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <Search className="absolute right-3 top-2.5 w-4 h-4 text-muted-foreground" />
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-primary/60" />
-            <span className="text-white text-sm">Filters:</span>
-            <div className="flex gap-2">
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Model size</span>
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Task type</span>
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Latency</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+     
       {/* Search Modal */}
       {searchModalOpen && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-start justify-center pt-20">
@@ -197,7 +168,7 @@ const CredentialVault: React.FC = () => {
                 <h3 className="text-lg font-medium text-white mb-3">Categories</h3>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                    <span className="text-white">Language Models</span>
+                    <span className="text-white">Templates</span>
                   </div>
                   <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
                     <span className="text-white">RPA Workflows</span>
@@ -289,13 +260,9 @@ const CredentialVault: React.FC = () => {
               onClick={openAiToolsModal}
               className="glass-button py-3 px-6 flex items-center justify-center group"
             >
-              Explore AI Tools
+              Explore Your Credential Manager
               <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
             </button>
-            <Link to="/ai/rpa" className="glass-button py-3 px-6 flex items-center justify-center group">
-              Automate with RPA
-              <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-            </Link>
           </div>
         </div>
       </div>
@@ -320,7 +287,7 @@ const CredentialVault: React.FC = () => {
                 >
                   <div className="flex items-center">
                     <Star className="w-4 h-4 text-primary/60 mr-2" />
-                    <h3 className="text-md font-medium text-white">Top LLMs</h3>
+                    <h3 className="text-md font-medium text-white">Top Identity Templates</h3>
                   </div>
                   {llmsExpanded ? (
                     <ChevronUp className="w-4 h-4 text-primary/60" />
@@ -336,7 +303,7 @@ const CredentialVault: React.FC = () => {
                         <Cpu className="w-4 h-4 text-primary/60" />
                         <div className="flex-1">
                           <p className="font-medium text-white">{llm.name}</p>
-                          <p className="text-sm text-muted-foreground">{llm.stars} stars</p>
+                          <p className="text-sm text-muted-foreground">{llm.stars}</p>
                         </div>
                         <Link
                           to="#"
@@ -358,7 +325,7 @@ const CredentialVault: React.FC = () => {
                 >
                   <div className="flex items-center">
                     <Bot className="w-4 h-4 text-primary/60 mr-2" />
-                    <h3 className="text-md font-medium text-white">Popular RPA Workflows</h3>
+                    <h3 className="text-md font-medium text-white">Most Popular Modifications</h3>
                   </div>
                   {rpaExpanded ? (
                     <ChevronUp className="w-4 h-4 text-primary/60" />

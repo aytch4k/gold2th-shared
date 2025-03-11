@@ -26,23 +26,17 @@ import {
 
 // Mock data for AI page
 const featuredLLMs = [
-  { name: 'Mistral-7B', stars: 1245, type: 'Language Model' },
-  { name: 'LLaMA-13B', stars: 987, type: 'Language Model' }
+  { name: 'Most Requested', stars: 1245, type: 'Language Model' },
+  { name: 'Most Denied', stars: 987, type: 'Language Model' }
 ]
 
 // AI Tools data
 const aiTools = [
   {
-    name: 'Flowise',
-    description: 'Low-code LLM app builder with visual workflow editor',
-    url: 'http://localhost:13000',
+    name: 'Credential Manager',
+    description: 'Manage who can view or retrieve your credentials.',
+    url: 'http://localhost:3001/consent-management',
     logoUrl: 'https://remarkable-smakager-ddb2b7.netlify.app/opengraph-image.png?2eca201df198027c'
-  },
-  {
-    name: 'n8n',
-    description: 'Workflow automation platform for connecting various services',
-    url: 'http://localhost:8083',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/53/N8n-logo-new.svg'
   }
 ]
 
@@ -52,14 +46,17 @@ const popularRPA = [
 ]
 
 const tutorials = [
-  { title: 'Build an LLM-Powered Chatbot', level: 'Intermediate', duration: '45 min' },
-  { title: 'Automate Data Extraction with RPA', level: 'Beginner', duration: '30 min' },
-  { title: 'Optimize DePAIN Meshes with AI', level: 'Advanced', duration: '60 min' }
+  { title: 'View Consent Requests (Pending)', level: 'Intermediate', duration: '5 min' },
+  { title: 'View Consent History', level: 'Beginner', duration: '5 min' },
+  { title: 'View Expired Consent Requests', level: 'Beginner', duration: '5 min' },
+  { title: 'Establish Consent Preferences', level: 'Advanced', duration: '5 min' }
 ]
 
 const deploymentGuides = [
-  { title: 'Deploy LLMs on DePAIN Meshes', level: 'Advanced', duration: '50 min' },
-  { title: 'Run RPA Workflows Across Nodes', level: 'Intermediate', duration: '40 min' }
+  { title: 'Approve Consent Requests', level: 'Advanced', duration: '5 min' },
+  { title: 'Deny Consent Requests', level: 'Advanced', duration: '5 min' },
+  { title: 'Export Consent History Logs', level: 'Advanced', duration: '5 min' },
+  { title: 'Search Consent & Filter Results', level: 'Intermediate', duration: '5 min' }
 ]
 
 const marketplaceItems = [
@@ -76,7 +73,7 @@ const ConsentManagement: React.FC = () => {
   const [guidesExpanded, setGuidesExpanded] = React.useState(false)
   const [dashboardExpanded, setDashboardExpanded] = React.useState(false)
   const [toolsExpanded, setToolsExpanded] = React.useState(false)
-  const [llmsExpanded, setLlmsExpanded] = React.useState(false)
+  const [llmsExpanded, setLlmsExpanded] = React.useState(true)
   const [rpaExpanded, setRpaExpanded] = React.useState(false)
   const [marketplaceExpanded, setMarketplaceExpanded] = React.useState(false)
   
@@ -114,31 +111,6 @@ const ConsentManagement: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Search Bar (Full Width) */}
-      <div className="glass-card p-4 mb-4 relative">
-        <div className="flex items-center gap-4">
-          <div className="relative flex-1">
-            <input
-              type="text"
-              placeholder="Search LLMs, RPA scripts, or DePAIN nodes"
-              className="w-full bg-background/30 border border-border/50 rounded-md py-2 px-4 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <Search className="absolute right-3 top-2.5 w-4 h-4 text-muted-foreground" />
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-primary/60" />
-            <span className="text-white text-sm">Filters:</span>
-            <div className="flex gap-2">
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Model size</span>
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Task type</span>
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Latency</span>
-            </div>
-          </div>
-        </div>
-      </div>
       
       {/* Search Modal */}
       {searchModalOpen && (
@@ -174,7 +146,7 @@ const ConsentManagement: React.FC = () => {
                       <Cpu className="w-4 h-4 text-primary/60" />
                       <div className="flex-1">
                         <p className="font-medium text-white">{llm.name}</p>
-                        <p className="text-sm text-muted-foreground">{llm.stars} stars</p>
+                        <p className="text-sm text-muted-foreground">{llm.stars} </p>
                       </div>
                       <Link
                         to="#"
@@ -221,9 +193,9 @@ const ConsentManagement: React.FC = () => {
             </button>
             
             <div className="mb-6">
-              <h2 className="text-2xl font-semibold text-white">AI Tools</h2>
+              <h2 className="text-2xl font-semibold text-white">Credential Consent</h2>
               <p className="text-muted-foreground mt-2">
-                Connect to these powerful AI tools to enhance your workflow
+                Grant, Deny, Revoke, or check the consent status of your credentials.
               </p>
             </div>
             
@@ -279,13 +251,9 @@ const ConsentManagement: React.FC = () => {
               onClick={openAiToolsModal}
               className="glass-button py-3 px-6 flex items-center justify-center group"
             >
-              Explore AI Tools
+              Manage your consent
               <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
             </button>
-            <Link to="/ai/rpa" className="glass-button py-3 px-6 flex items-center justify-center group">
-              Automate with RPA
-              <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-            </Link>
           </div>
         </div>
       </div>
@@ -310,7 +278,7 @@ const ConsentManagement: React.FC = () => {
                 >
                   <div className="flex items-center">
                     <Star className="w-4 h-4 text-primary/60 mr-2" />
-                    <h3 className="text-md font-medium text-white">Top LLMs</h3>
+                    <h3 className="text-md font-medium text-white">Top Consent Actions</h3>
                   </div>
                   {llmsExpanded ? (
                     <ChevronUp className="w-4 h-4 text-primary/60" />
@@ -326,7 +294,7 @@ const ConsentManagement: React.FC = () => {
                         <Cpu className="w-4 h-4 text-primary/60" />
                         <div className="flex-1">
                           <p className="font-medium text-white">{llm.name}</p>
-                          <p className="text-sm text-muted-foreground">{llm.stars} stars</p>
+                          <p className="text-sm text-muted-foreground">{llm.stars} </p>
                         </div>
                         <Link
                           to="#"
@@ -340,44 +308,7 @@ const ConsentManagement: React.FC = () => {
                 )}
               </div>
               
-              {/* RPA Workflows - Collapsible */}
-              <div>
-                <button
-                  className="w-full flex items-center justify-between mb-3"
-                  onClick={() => setRpaExpanded(!rpaExpanded)}
-                >
-                  <div className="flex items-center">
-                    <Bot className="w-4 h-4 text-primary/60 mr-2" />
-                    <h3 className="text-md font-medium text-white">Popular RPA Workflows</h3>
-                  </div>
-                  {rpaExpanded ? (
-                    <ChevronUp className="w-4 h-4 text-primary/60" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-primary/60" />
-                  )}
-                </button>
-                
-                {rpaExpanded && (
-                  <div className="space-y-3">
-                    {popularRPA.map((rpa, index) => (
-                      <div key={index} className="activity-item group">
-                        <FileCode className="w-4 h-4 text-primary/60" />
-                        <div className="flex-1">
-                          <p className="font-medium text-white">{rpa.name}</p>
-                          <p className="text-sm text-muted-foreground">{rpa.downloads} downloads</p>
-                        </div>
-                        <Link
-                          to="#"
-                          className="text-primary hover:text-primary/80 transform transition-transform group-hover:translate-x-1"
-                        >
-                          →
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
-            </div>
           </div>
         </div>
         
@@ -385,7 +316,7 @@ const ConsentManagement: React.FC = () => {
         <div className="space-y-6">
           <div className="glass-card p-6 min-h-[450px] flex flex-col justify-between">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">Build & Deploy</h2>
+              <h2 className="text-xl font-semibold text-white">Training & Tutorials</h2>
               <Code className="w-5 h-5 text-primary/60" />
             </div>
             
@@ -393,21 +324,19 @@ const ConsentManagement: React.FC = () => {
             <div className="mb-6">
               <div className="flex items-center mb-3">
                 <Wrench className="w-4 h-4 text-primary/60 mr-2" />
-                <h3 className="text-md font-medium text-white">Build Tools & Integrations</h3>
+                <h3 className="text-md font-medium text-white">Consent Status</h3>
               </div>
               <div className="grid grid-cols-2 gap-2 mb-4">
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">Hugging Face</span>
+                  <span className="text-white">Requests</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">Autheo AI SDK</span>
+                  <span className="text-white">History</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">PyAutoGUI</span>
+                  <span className="text-white">Preferences</span>
                 </div>
-                <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">UiPath</span>
-                </div>
+
               </div>
             </div>
             
@@ -419,7 +348,7 @@ const ConsentManagement: React.FC = () => {
               >
                 <div className="flex items-center">
                   <BookOpen className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Tutorials</h3>
+                  <h3 className="text-md font-medium text-white">Consent Tutorials</h3>
                 </div>
                 {tutorialsExpanded ? (
                   <ChevronUp className="w-4 h-4 text-primary/60" />
@@ -459,7 +388,7 @@ const ConsentManagement: React.FC = () => {
               >
                 <div className="flex items-center">
                   <Server className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Deployment Guides</h3>
+                  <h3 className="text-md font-medium text-white">Managing your Consent</h3>
                 </div>
                 {guidesExpanded ? (
                   <ChevronUp className="w-4 h-4 text-primary/60" />
@@ -491,40 +420,7 @@ const ConsentManagement: React.FC = () => {
               )}
             </div>
             
-            {/* Tools - Collapsible */}
-            <div>
-              <button
-                className="w-full flex items-center justify-between mb-3"
-                onClick={() => setToolsExpanded(!toolsExpanded)}
-              >
-                <div className="flex items-center">
-                  <Wrench className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Tools</h3>
-                </div>
-                {toolsExpanded ? (
-                  <ChevronUp className="w-4 h-4 text-primary/60" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-primary/60" />
-                )}
-              </button>
-              
-              {toolsExpanded && (
-                <div className="space-y-2 text-sm mb-4">
-                  <p className="text-muted-foreground">• Preloaded model templates</p>
-                  <p className="text-muted-foreground">• Mesh allocation scripts</p>
-                  <p className="text-muted-foreground">• Filecoin storage integration</p>
-                </div>
-              )}
-              
-              <button
-                onClick={openAiToolsModal}
-                className="glass-button mt-4 w-full flex items-center justify-center group"
-              >
-                View All Tools
-                <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-              </button>
-            </div>
-          </div>
+            {/* Tools - Collapsible */}          </div>
         </div>
         
         {/* Right Column: Buy & Manage */}
@@ -644,7 +540,7 @@ const ConsentManagement: React.FC = () => {
       <div className="glass-card p-6 mt-8">
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
           <Link to="/ai/docs" className="text-white hover:text-primary transition-colors">
-            AI Documentation
+            Documentation
           </Link>
           <Link to="http://localhost:8085/autheo/channels/artificial-intelligence" className="text-white hover:text-primary transition-colors">
             Community Forum

@@ -42,8 +42,14 @@ const aiTools = [
   {
     name: 'Authorize Access',
     description: 'Give Permission to modify your sovereign data.',
-    url: '/login',
+    url: 'http://localhost:3001/login',
     logoUrl: 'https://static.vecteezy.com/system/resources/previews/000/331/973/non_2x/vector-user-authentication-filled-icon.jpg'
+  },
+  {
+    name: 'Manage your Identities',
+    description: 'View and manage your sovereign identity data.',
+    url: 'http://localhost:3001/did-manager',
+    logoUrl: 'https://identity.foundation/images/logos/spruce.png'
   }
 ]
 
@@ -119,32 +125,7 @@ const DidManager: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Search Bar (Full Width) */}
-      <div className="glass-card p-4 mb-4 relative">
-        <div className="flex items-center gap-4">
-          <div className="relative flex-1">
-            <input
-              type="text"
-              placeholder="Search wallets, identites, categories, credential history, and more"
-              className="w-full bg-background/30 border border-border/50 rounded-md py-2 px-4 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
-            <Search className="absolute right-3 top-2.5 w-4 h-4 text-muted-foreground" />
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Filter className="w-4 h-4 text-primary/60" />
-            <span className="text-white text-sm">Filters:</span>
-            <div className="flex gap-2">
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Model size</span>
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Task type</span>
-              <span className="text-xs bg-background/40 text-white px-2 py-1 rounded-md">Latency</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+     
       {/* Search Modal */}
       {searchModalOpen && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-start justify-center pt-20">
