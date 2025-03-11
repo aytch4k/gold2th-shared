@@ -26,8 +26,8 @@ import {
 
 // Mock data for AI page
 const featuredLLMs = [
-  { name: 'Mistral-7B', stars: 1245, type: 'Language Model' },
-  { name: 'LLaMA-13B', stars: 987, type: 'Language Model' }
+  { name: '**Storage Layer** - IPFS for decentralized, encrypted storage of vault data - Geo-fenced nodes for regional data sovereignty'},
+  { name: '**Transport Layer** - libp2p for peer-to-peer communication - Lattice-based encryption for post-quantum security - Region-specific peer discovery and routing'},
 ]
 
 // AI Tools data
@@ -52,9 +52,13 @@ const popularRPA = [
 ]
 
 const tutorials = [
-  { title: 'Build an LLM-Powered Chatbot', level: 'Intermediate', duration: '45 min' },
-  { title: 'Automate Data Extraction with RPA', level: 'Beginner', duration: '30 min' },
-  { title: 'Optimize DePAIN Meshes with AI', level: 'Advanced', duration: '60 min' }
+  { title: 'Private keys never leave the user\'s wallet', level: '', duration: '' },
+  { title: 'All credential data is encrypted using homomorphic encryption', level: '', duration: '' },
+  { title: 'Zero-knowledge proofs are used for credential verification', level: '', duration: '' },
+  { title: 'Differential privacy techniques are applied to sensitive data', level: '', duration: '' },
+  { title: 'Geo-fenced storage ensures data sovereignty compliance', level: '', duration: '' },
+  { title: 'Secure point-to-point tunnel for post-quantum security', level: '', duration: '' },
+  { title: 'End-to-end encrypted communication between wallet and middleware', level: '', duration: '' }
 ]
 
 const deploymentGuides = [
@@ -63,9 +67,16 @@ const deploymentGuides = [
 ]
 
 const marketplaceItems = [
-  { name: 'Premium RPA Workflow', price: '$50/license', type: 'RPA' },
-  { name: 'AI Inference Stake', price: '500 DPT/month', type: 'Staking' }
+  { name: 'Secure DeEndpoint Shield Defender', price: '$50/license', type: 'Endpoint' },
+  { name: 'Quantum DeMesh Network Analyzer', price: '$50/license', type: 'Network' }
 ]
+
+const marketplaceItems2 = [
+  { name: 'PQC DeVPN Tunnel', price: '$50/license', type: 'Transport' },
+  { name: 'QRC Messenger', price: '$50/license', type: 'Communications' },
+  { name: 'QRF Grid Extender', price: '500 DPT/month', type: 'Grid-Down' }
+]
+
 
 // Hero image URL - using a placeholder image from Unsplash
 const heroImageUrl = 'ai-hero-image.PNG'
@@ -75,10 +86,11 @@ const Security: React.FC = () => {
   const [tutorialsExpanded, setTutorialsExpanded] = React.useState(false)
   const [guidesExpanded, setGuidesExpanded] = React.useState(false)
   const [dashboardExpanded, setDashboardExpanded] = React.useState(false)
-  const [toolsExpanded, setToolsExpanded] = React.useState(false)
-  const [llmsExpanded, setLlmsExpanded] = React.useState(false)
+  const [toolsExpanded, setToolsExpanded] = React.useState(true)
+  const [llmsExpanded, setLlmsExpanded] = React.useState(true)
   const [rpaExpanded, setRpaExpanded] = React.useState(false)
-  const [marketplaceExpanded, setMarketplaceExpanded] = React.useState(false)
+  const [marketplaceExpanded, setMarketplaceExpanded] = React.useState(true)
+  const [marketplace2Expanded, setMarketplace2Expanded] = React.useState(false)
   
   // State for search modal
   const [searchQuery, setSearchQuery] = React.useState('')
@@ -149,7 +161,7 @@ const Security: React.FC = () => {
                       <Cpu className="w-4 h-4 text-primary/60" />
                       <div className="flex-1">
                         <p className="font-medium text-white">{llm.name}</p>
-                        <p className="text-sm text-muted-foreground">{llm.stars} stars</p>
+                        <p className="text-sm text-muted-foreground">{llm.stars} </p>
                       </div>
                       <Link
                         to="#"
@@ -244,24 +256,13 @@ const Security: React.FC = () => {
         
         <div className="relative z-10 p-8">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-            Power Your AI with Autheo
+            Secure Your Autheo Endpoints and Tools
           </h1>
           <p className="text-sm text-muted-foreground mb-3">
-          324 LLM Libraries, 89 RPA Workflows Created. Automate and Innovate on DePAIN. Start Building Now!
+          Leverage state of the art security protection leveraging smart wallets, industry leading cryptographic libraries, point-to-point threat protection, 
+          and post-quantum readiness according to NIST PQC standards. Leveraging a purely decentralized infrastructure, securely encrypt p2p messages and traffic 
+          via one of the many tiers of encryption already integrated with our decentralized identity management system. 
               </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <button
-              onClick={openAiToolsModal}
-              className="glass-button py-3 px-6 flex items-center justify-center group"
-            >
-              Explore AI Tools
-              <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-            </button>
-            <Link to="/ai/rpa" className="glass-button py-3 px-6 flex items-center justify-center group">
-              Automate with RPA
-              <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
         </div>
       </div>
 
@@ -271,7 +272,7 @@ const Security: React.FC = () => {
         <div className="space-y-6">
           <div className="glass-card p-6 min-h-[450px] flex flex-col justify-between">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">Search & Discovery</h2>
+              <h2 className="text-xl font-semibold text-white">Endpoint Protection</h2>
               <Search className="w-5 h-5 text-primary/60" />
             </div>
             
@@ -285,7 +286,7 @@ const Security: React.FC = () => {
                 >
                   <div className="flex items-center">
                     <Star className="w-4 h-4 text-primary/60 mr-2" />
-                    <h3 className="text-md font-medium text-white">Top LLMs</h3>
+                    <h3 className="text-md font-medium text-white">Security Layers</h3>
                   </div>
                   {llmsExpanded ? (
                     <ChevronUp className="w-4 h-4 text-primary/60" />
@@ -301,7 +302,7 @@ const Security: React.FC = () => {
                         <Cpu className="w-4 h-4 text-primary/60" />
                         <div className="flex-1">
                           <p className="font-medium text-white">{llm.name}</p>
-                          <p className="text-sm text-muted-foreground">{llm.stars} stars</p>
+                          <p className="text-sm text-muted-foreground">{llm.stars} </p>
                         </div>
                         <Link
                           to="#"
@@ -317,40 +318,6 @@ const Security: React.FC = () => {
               
               {/* RPA Workflows - Collapsible */}
               <div>
-                <button
-                  className="w-full flex items-center justify-between mb-3"
-                  onClick={() => setRpaExpanded(!rpaExpanded)}
-                >
-                  <div className="flex items-center">
-                    <Bot className="w-4 h-4 text-primary/60 mr-2" />
-                    <h3 className="text-md font-medium text-white">Popular RPA Workflows</h3>
-                  </div>
-                  {rpaExpanded ? (
-                    <ChevronUp className="w-4 h-4 text-primary/60" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-primary/60" />
-                  )}
-                </button>
-                
-                {rpaExpanded && (
-                  <div className="space-y-3">
-                    {popularRPA.map((rpa, index) => (
-                      <div key={index} className="activity-item group">
-                        <FileCode className="w-4 h-4 text-primary/60" />
-                        <div className="flex-1">
-                          <p className="font-medium text-white">{rpa.name}</p>
-                          <p className="text-sm text-muted-foreground">{rpa.downloads} downloads</p>
-                        </div>
-                        <Link
-                          to="#"
-                          className="text-primary hover:text-primary/80 transform transition-transform group-hover:translate-x-1"
-                        >
-                          →
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -360,7 +327,7 @@ const Security: React.FC = () => {
         <div className="space-y-6">
           <div className="glass-card p-6 min-h-[450px] flex flex-col justify-between">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">Build & Deploy</h2>
+              <h2 className="text-xl font-semibold text-white">Decentralized Security Models</h2>
               <Code className="w-5 h-5 text-primary/60" />
             </div>
             
@@ -368,24 +335,27 @@ const Security: React.FC = () => {
             <div className="mb-6">
               <div className="flex items-center mb-3">
                 <Wrench className="w-4 h-4 text-primary/60 mr-2" />
-                <h3 className="text-md font-medium text-white">Build Tools & Integrations</h3>
+                <h3 className="text-md font-medium text-white">Security and Encryption Protocols</h3>
               </div>
               <div className="grid grid-cols-2 gap-2 mb-4">
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">Hugging Face</span>
+                  <span className="text-white">Zero-Knowledge Proofs</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">Autheo AI SDK</span>
+                  <span className="text-white">Homomorphic Encryption</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">PyAutoGUI</span>
+                  <span className="text-white">Differential Privacy</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">UiPath</span>
+                  <span className="text-white">Data Compression</span>
                 </div>
+                <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
+                  <span className="text-white">Lattice-Based Encryption</span>
+                </div>
+
               </div>
             </div>
-            
             {/* Tutorials - Collapsible */}
             <div className="mb-6">
               <button
@@ -394,7 +364,7 @@ const Security: React.FC = () => {
               >
                 <div className="flex items-center">
                   <BookOpen className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Tutorials</h3>
+                  <h3 className="text-md font-medium text-white">Advanced Security Features</h3>
                 </div>
                 {tutorialsExpanded ? (
                   <ChevronUp className="w-4 h-4 text-primary/60" />
@@ -428,21 +398,7 @@ const Security: React.FC = () => {
             
             {/* Deployment Guides - Collapsible */}
             <div className="mb-6">
-              <button
-                className="w-full flex items-center justify-between mb-3"
-                onClick={() => setGuidesExpanded(!guidesExpanded)}
-              >
-                <div className="flex items-center">
-                  <Server className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Deployment Guides</h3>
-                </div>
-                {guidesExpanded ? (
-                  <ChevronUp className="w-4 h-4 text-primary/60" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-primary/60" />
-                )}
-              </button>
-              
+               
               {guidesExpanded && (
                 <div className="space-y-3 mb-4">
                   {deploymentGuides.map((guide, index) => (
@@ -466,39 +422,6 @@ const Security: React.FC = () => {
               )}
             </div>
             
-            {/* Tools - Collapsible */}
-            <div>
-              <button
-                className="w-full flex items-center justify-between mb-3"
-                onClick={() => setToolsExpanded(!toolsExpanded)}
-              >
-                <div className="flex items-center">
-                  <Wrench className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Tools</h3>
-                </div>
-                {toolsExpanded ? (
-                  <ChevronUp className="w-4 h-4 text-primary/60" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-primary/60" />
-                )}
-              </button>
-              
-              {toolsExpanded && (
-                <div className="space-y-2 text-sm mb-4">
-                  <p className="text-muted-foreground">• Preloaded model templates</p>
-                  <p className="text-muted-foreground">• Mesh allocation scripts</p>
-                  <p className="text-muted-foreground">• Filecoin storage integration</p>
-                </div>
-              )}
-              
-              <button
-                onClick={openAiToolsModal}
-                className="glass-button mt-4 w-full flex items-center justify-center group"
-              >
-                View All Tools
-                <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-              </button>
-            </div>
           </div>
         </div>
         
@@ -506,13 +429,14 @@ const Security: React.FC = () => {
         <div className="space-y-6">
           <div className="glass-card p-6 min-h-[450px] flex flex-col justify-between">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">Buy & Manage</h2>
+              <h2 className="text-xl font-semibold text-white">Application Catalog</h2>
               <ShoppingCart className="w-5 h-5 text-primary/60" />
             </div>
             
             {/* Marketplace - Collapsible */}
             <div className="mb-6">
-              <button
+
+               <button
                 className="w-full flex items-center justify-between mb-3"
                 onClick={() => setMarketplaceExpanded(!marketplaceExpanded)}
               >
@@ -528,7 +452,7 @@ const Security: React.FC = () => {
               </button>
               
               <p className="text-sm text-muted-foreground mb-3">
-                License AI models, buy RPA templates, or stake DPT for AI inference.
+                Upgrade your soverign identity protection, your corporate security, and your crypto wallets.
               </p>
               
               {marketplaceExpanded && (
@@ -550,67 +474,53 @@ const Security: React.FC = () => {
                   ))}
                 </div>
               )}
+
             </div>
             
-            {/* Dashboard Features - Collapsible */}
-            <div>
-              <button
+            {/* Marketplace2 - Collapsible */}
+            <div className="mb-6">
+
+               <button
                 className="w-full flex items-center justify-between mb-3"
-                onClick={() => setDashboardExpanded(!dashboardExpanded)}
+                onClick={() => setMarketplace2Expanded(!marketplace2Expanded)}
               >
                 <div className="flex items-center">
-                  <BarChart3 className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Dashboard Features</h3>
+                  <ShoppingCart className="w-4 h-4 text-primary/60 mr-2" />
+                  <h3 className="text-md font-medium text-white">Additional Solutions</h3>
                 </div>
-                {dashboardExpanded ? (
+                {marketplace2Expanded ? (
                   <ChevronUp className="w-4 h-4 text-primary/60" />
                 ) : (
                   <ChevronDown className="w-4 h-4 text-primary/60" />
                 )}
               </button>
               
-              {dashboardExpanded && (
-                <div className="space-y-4">
-                  <div className="activity-item">
-                    <BarChart3 className="w-4 h-4 text-primary/60" />
-                    <div className="flex-1">
-                      <p className="font-medium text-white">Performance Monitoring</p>
-                      <p className="text-sm text-muted-foreground">
-                        Monitor LLM performance, RPA task status, and mesh health
-                      </p>
+              <p className="text-sm text-muted-foreground mb-3">
+                Upgrade your soverign identity protection, your corporate security, and your crypto wallets.
+              </p>
+              
+              {marketplace2Expanded && (
+                <div className="space-y-4 mb-6">
+                  {marketplaceItems2.map((item, index) => (
+                    <div key={index} className="glass-card p-4 border border-border/30">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h4 className="text-white font-medium">{item.name}</h4>
+                          <p className="text-sm text-muted-foreground">{item.type}</p>
+                        </div>
+                        <span className="text-primary font-medium">{item.price}</span>
+                      </div>
+                      <button className="glass-button mt-3 w-full flex items-center justify-center group text-sm py-1.5">
+                        Purchase
+                        <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
+                      </button>
                     </div>
-                  </div>
-                  
-                  <div className="activity-item">
-                    <Layers className="w-4 h-4 text-primary/60" />
-                    <div className="flex-1">
-                      <p className="font-medium text-white">AI Infrastructure</p>
-                      <p className="text-sm text-muted-foreground">
-                        AI-driven load balancing, automated scaling, and DPT staking analytics
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="activity-item">
-                    <Bell className="w-4 h-4 text-primary/60" />
-                    <div className="flex-1">
-                      <p className="font-medium text-white">Alerts</p>
-                      <p className="text-sm text-muted-foreground">
-                        Alerts for model drift, latency spikes, and reward payouts
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               )}
-              
-              <Link
-                to="/ai/dashboard"
-                className="glass-button mt-4 w-full flex items-center justify-center group"
-              >
-                Open Dashboard
-                <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-              </Link>
+
             </div>
+
           </div>
         </div>
       </div>
@@ -618,16 +528,16 @@ const Security: React.FC = () => {
       {/* Footer Navigation */}
       <div className="glass-card p-6 mt-8">
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
-          <Link to="/ai/docs" className="text-white hover:text-primary transition-colors">
-            AI Documentation
+          <Link to="/security/docs" className="text-white hover:text-primary transition-colors">
+            Documentation
           </Link>
-          <Link to="http://localhost:8085/autheo/channels/artificial-intelligence" className="text-white hover:text-primary transition-colors">
+          <Link to="http://localhost:8085/autheo/channels/security" className="text-white hover:text-primary transition-colors">
             Community Forum
           </Link>
-          <Link to="/ai/governance" className="text-white hover:text-primary transition-colors">
+          <Link to="/security/governance" className="text-white hover:text-primary transition-colors">
             Governance Proposals
           </Link>
-          <Link to="/ai/support" className="text-white hover:text-primary transition-colors">
+          <Link to="/security/support" className="text-white hover:text-primary transition-colors">
             Support
           </Link>
         </div>

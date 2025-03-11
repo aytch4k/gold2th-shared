@@ -550,16 +550,16 @@ const DidManager: React.FC = () => {
       {/* Footer Navigation */}
       <div className="glass-card p-6 mt-8">
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
-          <Link to="/ai/docs" className="text-white hover:text-primary transition-colors">
+          <Link to="/did/docs" className="text-white hover:text-primary transition-colors">
             Documentation
           </Link>
-          <Link to="http://localhost:8085/autheo/channels/artificial-intelligence" className="text-white hover:text-primary transition-colors">
+          <Link to="http://localhost:8085/autheo/channels/did" className="text-white hover:text-primary transition-colors">
             Community Forum
           </Link>
-          <Link to="/ai/governance" className="text-white hover:text-primary transition-colors">
+          <Link to="/did/governance" className="text-white hover:text-primary transition-colors">
             Governance Proposals
           </Link>
-          <Link to="/ai/support" className="text-white hover:text-primary transition-colors">
+          <Link to="/did/support" className="text-white hover:text-primary transition-colors">
             Support
           </Link>
         </div>
