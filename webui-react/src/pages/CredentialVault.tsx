@@ -53,23 +53,28 @@ const popularRPA = [
 ]
 
 const tutorials = [
-  { title: 'Build an LLM-Powered Chatbot', level: 'Intermediate', duration: '45 min' },
-  { title: 'Automate Data Extraction with RPA', level: 'Beginner', duration: '30 min' },
-  { title: 'Optimize DePAIN Meshes with AI', level: 'Advanced', duration: '60 min' }
+  { title: 'Accessing Credential History', level: 'Beginner', duration: '30 min' },
+  { title: 'Downloading Credentials', level: 'Beginner', duration: '60 min' },
+  { title: 'Verifying Credentials', level: 'Beginner', duration: '5 min' },
+  { title: 'Viewing Credential Details', level: 'Beginner', duration: '2 min' }
 ]
 
 const deploymentGuides = [
-  { title: 'Deploy LLMs on DePAIN Meshes', level: 'Advanced', duration: '50 min' },
-  { title: 'Run RPA Workflows Across Nodes', level: 'Intermediate', duration: '40 min' }
+  { title: 'Creating Credentials', level: 'Advanced', duration: '5 min' },
+  { title: 'Exporting Credentials', level: 'Intermediate', duration: '7 min' },
+  { title: 'Destroying Credentials', level: 'Advanced', duration: '9 min' },
+  { title: 'Sharing Credentials', level: 'Intermediate', duration: '11 min' }
 ]
 
 const marketplaceItems = [
-  { name: 'Premium RPA Workflow', price: '$50/license', type: 'RPA' },
-  { name: 'AI Inference Stake', price: '500 DPT/month', type: 'Staking' }
+ { name: 'LinkedIn Resume', price: '10 $THEO /mo', type: 'Employment Profiles' },
+  { name: 'US Passport', price: '100 $THEO', type: 'US Federal Government' },
+  { name: 'US Passport Card ', price: '55 $THEO', type: 'US Federal Government' },
+  { name: 'US Social Security Card ', price: '11 $THEO', type: 'US Federal Government' }
 ]
 
 // Hero image URL - using a placeholder image from Unsplash
-const heroImageUrl = 'ai-hero-image.PNG'
+const heroImageUrl = 'credential-vault-hero-image.PNG'
 
 const CredentialVault: React.FC = () => {
   // State for collapsible sections
@@ -77,9 +82,9 @@ const CredentialVault: React.FC = () => {
   const [guidesExpanded, setGuidesExpanded] = React.useState(false)
   const [dashboardExpanded, setDashboardExpanded] = React.useState(false)
   const [toolsExpanded, setToolsExpanded] = React.useState(false)
-  const [llmsExpanded, setLlmsExpanded] = React.useState(false)
-  const [rpaExpanded, setRpaExpanded] = React.useState(false)
-  const [marketplaceExpanded, setMarketplaceExpanded] = React.useState(false)
+  const [llmsExpanded, setLlmsExpanded] = React.useState(true)
+  const [rpaExpanded, setRpaExpanded] = React.useState(true)
+  const [marketplaceExpanded, setMarketplaceExpanded] = React.useState(true)
   
   // State for search modal
   const [searchQuery, setSearchQuery] = React.useState('')
@@ -270,11 +275,15 @@ const CredentialVault: React.FC = () => {
         
         <div className="relative z-10 p-8">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-            Power Your AI with Autheo
+          Securely store and manage your digital credentials with end-to-end encryption.
           </h1>
           <p className="text-sm text-muted-foreground mb-3">
-          324 LLM Libraries, 89 RPA Workflows Created. Automate and Innovate on DePAIN. Start Building Now!
-              </p>
+          <ul>
+              <li/>- Create new credentials
+              <li/>- Verify Credential Status
+              <li/>- Export Credential for Offline 
+              </ul>
+             </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <button
               onClick={openAiToolsModal}
@@ -386,7 +395,7 @@ const CredentialVault: React.FC = () => {
         <div className="space-y-6">
           <div className="glass-card p-6 min-h-[450px] flex flex-col justify-between">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-white">Build & Deploy</h2>
+              <h2 className="text-xl font-semibold text-white">Create Credentials</h2>
               <Code className="w-5 h-5 text-primary/60" />
             </div>
             
@@ -394,20 +403,20 @@ const CredentialVault: React.FC = () => {
             <div className="mb-6">
               <div className="flex items-center mb-3">
                 <Wrench className="w-4 h-4 text-primary/60 mr-2" />
-                <h3 className="text-md font-medium text-white">Build Tools & Integrations</h3>
+                <h3 className="text-md font-medium text-white">Categories</h3>
               </div>
               <div className="grid grid-cols-2 gap-2 mb-4">
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">Hugging Face</span>
+                  <span className="text-white">Education</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">Autheo AI SDK</span>
+                  <span className="text-white">Employment</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">PyAutoGUI</span>
+                  <span className="text-white">Financial</span>
                 </div>
                 <div className="glass-button py-2 px-3 text-sm flex items-center justify-center">
-                  <span className="text-white">UiPath</span>
+                  <span className="text-white">Healthcare</span>
                 </div>
               </div>
             </div>
@@ -492,39 +501,6 @@ const CredentialVault: React.FC = () => {
               )}
             </div>
             
-            {/* Tools - Collapsible */}
-            <div>
-              <button
-                className="w-full flex items-center justify-between mb-3"
-                onClick={() => setToolsExpanded(!toolsExpanded)}
-              >
-                <div className="flex items-center">
-                  <Wrench className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Tools</h3>
-                </div>
-                {toolsExpanded ? (
-                  <ChevronUp className="w-4 h-4 text-primary/60" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-primary/60" />
-                )}
-              </button>
-              
-              {toolsExpanded && (
-                <div className="space-y-2 text-sm mb-4">
-                  <p className="text-muted-foreground">• Preloaded model templates</p>
-                  <p className="text-muted-foreground">• Mesh allocation scripts</p>
-                  <p className="text-muted-foreground">• Filecoin storage integration</p>
-                </div>
-              )}
-              
-              <button
-                onClick={openAiToolsModal}
-                className="glass-button mt-4 w-full flex items-center justify-center group"
-              >
-                View All Tools
-                <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-              </button>
-            </div>
           </div>
         </div>
         
@@ -554,7 +530,7 @@ const CredentialVault: React.FC = () => {
               </button>
               
               <p className="text-sm text-muted-foreground mb-3">
-                License AI models, buy RPA templates, or stake DPT for AI inference.
+                License information architectures, templates, and credential experiences.
               </p>
               
               {marketplaceExpanded && (
@@ -578,65 +554,6 @@ const CredentialVault: React.FC = () => {
               )}
             </div>
             
-            {/* Dashboard Features - Collapsible */}
-            <div>
-              <button
-                className="w-full flex items-center justify-between mb-3"
-                onClick={() => setDashboardExpanded(!dashboardExpanded)}
-              >
-                <div className="flex items-center">
-                  <BarChart3 className="w-4 h-4 text-primary/60 mr-2" />
-                  <h3 className="text-md font-medium text-white">Dashboard Features</h3>
-                </div>
-                {dashboardExpanded ? (
-                  <ChevronUp className="w-4 h-4 text-primary/60" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-primary/60" />
-                )}
-              </button>
-              
-              {dashboardExpanded && (
-                <div className="space-y-4">
-                  <div className="activity-item">
-                    <BarChart3 className="w-4 h-4 text-primary/60" />
-                    <div className="flex-1">
-                      <p className="font-medium text-white">Performance Monitoring</p>
-                      <p className="text-sm text-muted-foreground">
-                        Monitor LLM performance, RPA task status, and mesh health
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="activity-item">
-                    <Layers className="w-4 h-4 text-primary/60" />
-                    <div className="flex-1">
-                      <p className="font-medium text-white">AI Infrastructure</p>
-                      <p className="text-sm text-muted-foreground">
-                        AI-driven load balancing, automated scaling, and DPT staking analytics
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="activity-item">
-                    <Bell className="w-4 h-4 text-primary/60" />
-                    <div className="flex-1">
-                      <p className="font-medium text-white">Alerts</p>
-                      <p className="text-sm text-muted-foreground">
-                        Alerts for model drift, latency spikes, and reward payouts
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-              
-              <Link
-                to="/ai/dashboard"
-                className="glass-button mt-4 w-full flex items-center justify-center group"
-              >
-                Open Dashboard
-                <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

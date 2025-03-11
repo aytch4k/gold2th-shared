@@ -8,21 +8,11 @@ import '@rainbow-me/rainbowkit/styles.css'
 import { wagmiConfig } from './config/wagmi'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
-
-
-
 import CredentialVault from './pages/CredentialVault'
 import DidManager from './pages/DidManager'
 import ConsentManagement from './pages/ConsentManagement'
 import Security from './pages/Security'
 import Settings from './pages/Settings'
-import Hardware from './pages/Hardware'
-import Software from './pages/Software'
-import Repositories from './pages/Repositories'
-import Community from './pages/Community'
-import Governance from './pages/Governance'
-import CreateProposal from './pages/CreateProposal'
-import ActiveProposals from './pages/ActiveProposals'
 import ConnectWallet from './pages/ConnectWallet'
 
 const queryClient = new QueryClient()
@@ -69,12 +59,6 @@ const App: React.FC = () => {
                     <Route path="/ConsentManagement" element={<ConsentManagement />} />
                     <Route path="/Security" element={<Security />} />
                     <Route path="/Settings" element={<Settings />} />
-                    <Route path="/Software" element={<Software />} />
-                    <Route path="/repositories" element={<Repositories />} />
-                    <Route path="/community" element={<Community />} />
-                    <Route path="/governance" element={<Governance />} />
-                    <Route path="/governance/create" element={<CreateProposal />} />
-                    <Route path="/governance/proposals" element={<ActiveProposals />} />
                     <Route path="/connect-wallet" element={<ConnectWallet />} />
                     </Routes>
                   </div>

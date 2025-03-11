@@ -45,6 +45,7 @@ const recentActivity = [
   }
 ]
 
+
 const Home: React.FC = () => {
   return (
     <div className="space-y-8 animate-fade-in">
@@ -53,24 +54,20 @@ const Home: React.FC = () => {
         <div className="stats-card glow-effect">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-medium mb-2 text-white">Developer Hub</h3>
+              <h3 className="text-lg font-medium mb-2 text-white">Sovereign Identity for the Digital Age</h3>
               <p className="text-3xl font-bold gradient-text">
-                {stats.repositories.total} <span className="text-muted-foreground mt-1">Repositories</span>
-              </p>
-              <p className="text-muted-foreground mt-1">
-                {stats.repositories.active} active this week
-              </p>
+             </p>
               <p className="text-muted-foreground">
-                {stats.repositories.new} new this month
+               Cutting-edge decentralized identity framework that puts you in control of your digital presence while enabling seamless authentication across services.
               </p>
             </div>
             <GitBranch className="w-6 h-6 text-primary/60" />
           </div>
           <Link
-            to="http://localhost:8084/explore/repos"
+            to="/DidManager"
             className="glass-button mt-4 w-full flex items-center justify-center group"
           >
-            Manage on Autheo
+            Manage Identity
             <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -78,24 +75,28 @@ const Home: React.FC = () => {
         <div className="stats-card glow-effect">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-medium mb-2 text-white">Artificial Intelligence</h3>
+              <h3 className="text-lg font-medium mb-2 text-white">Credential Vault</h3>
               <p className="text-3xl font-bold gradient-text">
-                {stats.community.developers} <span className="text-muted-foreground mt-1">LLM Libraries</span>
               </p>
               <p className="text-muted-foreground mt-1">
-                {stats.community.activeContributors} Workflows Created
               </p>
               <p className="text-muted-foreground">
-                {stats.community.coreMembers} RPA Processes
+              Securely store and manage your digital credentials with end-to-end encryption.
+              <ul>
+              <li/>- Create new credentials
+              <li/>- Verify Credential Status
+              <li/>- Export Credential for Offline 
+              </ul>
               </p>
+
             </div>
             <Users className="w-6 h-6 text-primary/60" />
           </div>
           <Link
-            to="/ai"
+            to="/CredentialVault"
             className="glass-button mt-4 w-full flex items-center justify-center group"
           >
-            Automate on Autheo
+            Manage Credentials
             <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -103,24 +104,26 @@ const Home: React.FC = () => {
         <div className="stats-card glow-effect">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-medium mb-2 text-white">DeFi</h3>
-              <p className="text-3xl font-bold gradient-text">
-                {stats.governance.activeProposals} <span className="text-muted-foreground mt-1">Smart Contracts</span>
-              </p>
+              <h3 className="text-lg font-medium mb-2 text-white">Consent Management</h3>
               <p className="text-muted-foreground mt-1">
-                {stats.governance.pendingReviews} NFTs
               </p>
               <p className="text-muted-foreground">
-                {stats.governance.participation} Staked
+              Control how your data is shared and monitor access to your credentials
+              <ul>
+              <li/>- Approve / Reject Requests
+              <li/>- View Consent History
+              <li/>- Configure Sharing Preferences
+              <li/>&nbsp;
+              </ul>
               </p>
             </div>
             <Activity className="w-6 h-6 text-primary/60" />
           </div>
           <Link
-            to="/defi"
+            to="/ConsentManagement"
             className="glass-button mt-4 w-full flex items-center justify-center group"
           >
-            Monetize on Autheo
+            Authorize or Revoke Access
             <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -128,24 +131,25 @@ const Home: React.FC = () => {
         <div className="stats-card glow-effect">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-medium mb-2 text-white">Data & Analytics (DnA)</h3>
-              <p className="text-3xl font-bold gradient-text">
-                {stats.repositories.total} <span className="text-muted-foreground mt-1">Data Pipelines</span>
-              </p>
-              <p className="text-muted-foreground mt-1">
-                {stats.repositories.active} Oracle Interfaces
+              <h3 className="text-lg font-medium mb-2 text-white">Single Sign-On</h3>
+               <p className="text-muted-foreground mt-1">
               </p>
               <p className="text-muted-foreground">
-                {stats.repositories.new} Pipelines
-              </p>
+                Integrate your digital identies with enterprise single sign-on solutions. Use your web3 or crypto wallets to login to your favorite sites.<br/><br/> 
+                <ul>
+              <li/>- Keycloak
+              <li/>- Okta
+              <li/>- OpenId
+             </ul>
+               </p>
             </div>
             <GitBranch className="w-6 h-6 text-primary/60" />
           </div>
           <Link
-            to="/dna"
+            to="/AdminPanel"
             className="glass-button mt-4 w-full flex items-center justify-center group"
           >
-            Analyze on Autheo
+            SSO Integrations
             <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -153,24 +157,30 @@ const Home: React.FC = () => {
         <div className="stats-card glow-effect">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-medium mb-2 text-white">Hardware</h3>
+              <h3 className="text-lg font-medium mb-2 text-white">Self-Service Administration</h3>
               <p className="text-3xl font-bold gradient-text">
-                {stats.community.developers} <span className="text-muted-foreground mt-1">DePIN Projects</span>
               </p>
               <p className="text-muted-foreground mt-1">
-                {stats.community.activeContributors} Networks Deployed
+                Manage and monitor your identity, credentials, and consent.
               </p>
-              <p className="text-muted-foreground">
-                {stats.community.coreMembers} Secured Enclaves
+              <p className="text-3xl font-bold gradient-text">&nbsp;
               </p>
-            </div>
+                <p className="text-muted-foreground mt-1">
+                <ul>
+              <li/>- System Health
+              <li/>- System Integration Management
+              <li/>- Smart Contract Deployment
+              <li/>- Favorites, Settings, Configurations
+              </ul>
+              </p>
+           </div>
             <Users className="w-6 h-6 text-primary/60" />
           </div>
           <Link
             to="/hardware"
             className="glass-button mt-4 w-full flex items-center justify-center group"
           >
-            Deploy on Autheo
+            Monitor your Identity
             <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -178,15 +188,12 @@ const Home: React.FC = () => {
         <div className="stats-card glow-effect">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-medium mb-2 text-white">Software</h3>
-              <p className="text-3xl font-bold gradient-text">
-                {stats.governance.activeProposals} <span className="text-muted-foreground mt-1">dApps</span>
-              </p>
+              <h3 className="text-lg font-medium mb-2 text-white">Security</h3>
               <p className="text-muted-foreground mt-1">
-                {stats.governance.pendingReviews} Frameworks
+                
               </p>
               <p className="text-muted-foreground">
-                {stats.governance.participation} Toolkits and SDKs
+                Upgrade your identity protection by incorporating next-generation encryption, cryptographic frameworks, and protection. Adhere to NIST Post Quantum Cryptograph standards to ensure protection from quantum threats. 
               </p>
             </div>
             <Activity className="w-6 h-6 text-primary/60" />
@@ -195,7 +202,7 @@ const Home: React.FC = () => {
             to="/software"
             className="glass-button mt-4 w-full flex items-center justify-center group"
           >
-            Build on Autheo
+            Security on Autheo
             <span className="ml-2 transform transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>

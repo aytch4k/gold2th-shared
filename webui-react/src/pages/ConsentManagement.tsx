@@ -68,7 +68,7 @@ const marketplaceItems = [
 ]
 
 // Hero image URL - using a placeholder image from Unsplash
-const heroImageUrl = 'ai-hero-image.PNG'
+const heroImageUrl = 'consent-management-hero-image.PNG'
 
 const ConsentManagement: React.FC = () => {
   // State for collapsible sections
@@ -269,10 +269,10 @@ const ConsentManagement: React.FC = () => {
         
         <div className="relative z-10 p-8">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-            Power Your AI with Autheo
+            Manage Identity and Credential Consent with Autheo
           </h1>
           <p className="text-sm text-muted-foreground mb-3">
-          324 LLM Libraries, 89 RPA Workflows Created. Automate and Innovate on DePAIN. Start Building Now!
+          Control how your data is shared and monitor access to your credentials
               </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <button
